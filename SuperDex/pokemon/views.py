@@ -59,15 +59,27 @@ def search(request):
 
     role_tokens = pokemon.rolestring.split(",")
     role_list = []
+    comp_lists = []
     for roletoken in role_tokens:
         roleInt = int(roletoken)
-        role_list.append(Roles.objects.get(pk = roleInt))
+        roleObj = Roles.objects.get(pk = roleInt)
+
+        comp_tokens = roleObj.compIDs.split("/")
+        comp_list = []
+        for comp_token in comp_tokens:
+            compInt = int(comp_token)
+            comp_list.append(Roles.objects.get(pk = compInt).name)
+        compstr = "/".join(comp_list)
+        comp_lists.append(compstr)
+        role_list.append((roleObj, compstr))
+
+
 
 
     Pokemon_type = poke_type.objects.get(poke_type = pokemon.poke_type)
     context = RequestContext(request)
     return render_to_response('pokemon/pokemon_profile.html', {"pokemon": pokemon, "abilities": abilities,
-     "zip_TM":zip_TM, "zip_level":zip_level, "evo_from":evo_from, "evo_to":evo_to, "role_list":role_list, "Pokemon_type":Pokemon_type,}, context_instance=context)
+     "zip_TM":zip_TM, "zip_level":zip_level, "evo_from":evo_from, "evo_to":evo_to, "comp_lists":comp_lists, "role_list":role_list, "Pokemon_type":Pokemon_type,}, context_instance=context)
 
 def pokemon_profile(request, pokemon_id):
     #template = loader.get_template('pokemon/pokemon_profile.html')

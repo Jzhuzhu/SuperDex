@@ -146,12 +146,12 @@
 		<div class="two-third last">
 			<h3>Who's that Pokémon?</h3>
 			{% for role in role_list %}
-                 <h6>{{ pokemon.name }} could make a great {{role.name}} because it has superior {{role.reqStats}}</h6>
-                    <p>If you use {{ pokemon.name }} as a {{role.name}}  </p>
+                 <h6>{{ pokemon.name }} could make a great {{role.0.name}} because it has superior {{role.0.reqStats}}</h6>
+                    <p>If you use {{ pokemon.name }} as a {{role.0.name}}  </p>
                     <ul>
-                        <li>Suggested Nature: {{role.suggNat}} </li>
-                        <li>Suggested Moves: {{role.impMoves}}</li>
-                        <li>Companion Pokémon: {{role.compIDs}}</li>
+                        <li>Suggested Nature: {{role.0.suggNat}} </li>
+                        <li>Suggested Moves: {{role.0.impMoves}}</li>
+                        <li>Companion Pokémon: {{role.1}}</li>
                     </ul>
             {% endfor %}
 
