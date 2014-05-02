@@ -117,12 +117,8 @@ def comp_search(request):
 		pokemon_stat = pokemon1
 	elif pokemon1.basetotal < pokemon2.basetotal:
 		pokemon_stat = pokemon2
-	
-	if sum1 > sum2:
-		pokemon_less_weak = pokemon1
-	else:
-		pokemon_less_weak = pokemon2
 
 	context = RequestContext(request)
 	return render_to_response('pokemon/pokemon_comparison.html', {"pokemon1":pokemon1, "pokemon2":pokemon2,
-		"ability_comp":ability_comp, "type1":type1, "type2":type2, "pokemon_stat":pokemon_stat, "pokemon_less_weak":pokemon_less_weak,}, context_instance=context)
+		"ability_comp":ability_comp, "type1":type1, "type2":type2, "pokemon_stat":pokemon_stat, 
+		"sum1":sum1, "sum2":sum2,}, context_instance=context)

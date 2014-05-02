@@ -47,7 +47,7 @@
 		<div id="menu-wrapper">
 			<div id="menu" class="menu">
 				<ul id="tiny">
-					<li><a href="main_search.html">Search</a>
+					<li><a href="/pokemon/">Search</a>
 					</li>
 					<li><a href="">Settings</a>
 					</li>
@@ -76,16 +76,20 @@
 		</div>
 		<h1 class="title">{{ pokemon_stat.name}} is the stronger Pokémon</h1>
 	</div>
-	<p> {{ pokemon_stat.name }}  was chosen as the stronger Pokémon, because of *its superior stats* and *fewer type weaknesses*. </p>
+	<p>	{{ pokemon_stat.name }}	was chosen as the stronger Pokémon, because of its superior stats and *fewer type weaknesses*. </p>
 	<div class="clear"></div>
 	<div class="one-half">
 	<h4> Key Similarties </h4>	
 		<ul>
-			<li>Similarity</li>
-			<li>Similarity</li>
-			<li>Similarity</li>
-			<li>Similarity</li>
-			<li>Similarity</li>
+			{% if pokemon1.basetotal == pokemon2.basetotal %}
+				<li>{{ pokemon1.name }} and {{ pokemon2.name }} have the same overall base stats</li>
+			{% endif %}
+			{% if sum1 == sum2 %}
+				<li>{{pokemon1.name }} and {{ pokemon2.name }} have the same number of type weaknesses</li>
+			{% endif %}
+			<li>{{ PokémonX }} and {{ PokémonY }} are both candidates for the {{role}} role. </li>
+		</ul>
+	
 		</ul>
 	
 	</div>
@@ -93,14 +97,17 @@
 	<div class="one-half last">
 	<h4> Key Differences </h4>
 		<ul>
-			<li>Difference</li>
-			<li>Difference</li>
-			<li>Difference</li>
-			<li>Difference</li>
-			<li>Difference</li>
+			{% if pokemon_stat %}
+				<li>{{ pokemon_stat.name }} has better overall base stats.</li>
+			{% endif %}
+			{% if sum1 < sum2 %}
+				<li>{{ pokemon1.name }} has less type weaknesses.</li>
+			{% endif %}
+			{% if sum1 > sum2 %}
+				<li>{{ pokemon2.name }} has less type weaknesses.</li>
+			{% endif %}
+			<li> {{ PokémonX }} is a good candidate for the {{role}} role. </li>
 		</ul>
-	
-	
 	</div>
 	<hr />
 	<br />
