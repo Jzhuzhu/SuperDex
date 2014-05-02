@@ -100,6 +100,36 @@
 		<div class="one-third">
 			<div class="outer none"><span class="inset">
 				<img src={{ pokemon.imageurl }}></span></div>
+            <br />
+            <h6>Type</h6>
+				<p>{{ pokemon.poke_type }}</p>
+				<hr />
+
+            <h6>Evolution</h6>
+                <ul>
+                    <li>Evolves from: {% if evo_from %}
+                                        {{ evo_from.pokemon_id1.name }} - ({{evo_from.how}}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}</li>
+                    <li>Evolves into: {% if evo_to %}
+                                        {{ evo_to.pokemon_id2.name }} - ({{evo_to.how}}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}</li>
+                </ul>
+				<hr />
+            <h6>Ability</h6>
+                <ul>
+                    {% for ability in abilities %}
+                        <li> {{ ability.name }} - {{ability.description}}</li>
+                    {% endfor %}
+                </ul>
+
+				<hr />
+            <h6>Height / Weight</h6>
+				<p>{{ pokemon.height_ft }}, {{ pokemon.height_m }} / {{ pokemon.weight_lbs }}, {{ pokemon.weight_kg }}</p>
+				<hr />
 		</div>
 		
 		<div class="two-third last">
@@ -116,40 +146,7 @@
 
 			Navigate to: <a href="#catch">Catching this Pokémon</a>, <a href="#battle">Battling with this Pokémon</a>, <a href="#hatch">Hatching this Pokémon</a>, <a href="#learnset">Learnset</a>
 			<hr />
-			
-			<div class="one-half">
-				<h6>Type</h6>
-				<p>{{ pokemon.poke_type }}</p>
-				<hr />
-				<h6>Ability</h6>
-					<ul>
-						{% for ability in abilities %}
-							<li> {{ ability.name }} - {{ability.description}}</li>
-						{% endfor %}
-					</ul>
-						
-				<hr />
-				
-			</div>
-			<div class="one-half last">
-				<h6>Height / Weight</h6>
-				<p>{{ pokemon.height_ft }}, {{ pokemon.height_m }} / {{ pokemon.weight_lbs }}, {{ pokemon.weight_kg }}</p>
-				<hr />
-				<h6>Evolution</h6>
-					<ul>
-						<li>Evolves from: {% if evo_from %}
-											{{ evo_from.pokemon_id1.name }} - ({{evo_from.how}}
-										{% else %}
-											N/A
-										{% endif %}</li>
-						<li>Evolves into: {% if evo_to %}
-											{{ evo_to.pokemon_id2.name }} - ({{evo_to.how}}
-										{% else %}
-											N/A
-										{% endif %}</li>
-					</ul>
-				<hr />
-			</div>
+
 		</div>
 		<!--below image -->
 		<div class="one-third">	

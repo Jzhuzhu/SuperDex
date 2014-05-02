@@ -87,7 +87,6 @@
 			{% if sum1 == sum2 %}
 				<li>{{pokemon1.name }} and {{ pokemon2.name }} have the same number of type weaknesses</li>
 			{% endif %}
-			<li>{{ PokémonX }} and {{ PokémonY }} are both candidates for the {{role}} role. </li>
 		</ul>
 	
 		</ul>
@@ -106,7 +105,6 @@
 			{% if sum1 > sum2 %}
 				<li>{{ pokemon2.name }} has less type weaknesses.</li>
 			{% endif %}
-			<li> {{ PokémonX }} is a good candidate for the {{role}} role. </li>
 		</ul>
 	</div>
 	<hr />
@@ -119,8 +117,8 @@
 				{% endif %} has better overall stats. </p>
 	<table>
 			<tr>
-				<th>{{ Pokémon1 }}</th>
-				<th>{{ Pokémon2 }}</th>
+				<th>{{ pokemon1.name }}</th>
+				<th>{{ pokemon2.name }}</th>
 			</tr>
 			<tr>
 			<td <td{% if pokemon1.basehp >= pokemon2.basehp %}
