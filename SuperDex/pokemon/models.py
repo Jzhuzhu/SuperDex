@@ -24,6 +24,31 @@ class poke_type(models.Model):
 	Fairy = models.DecimalField(max_digits=3, decimal_places=2)
 	def __str__(self):
 		return self.poke_type
+	def get_effectiveness(self): 
+		total = []
+		normal = []
+		weak = []
+		immune = []
+		resistant = []
+		for field in self._meta.fields:
+			if field.name == "poke_type":
+				continue
+			value = getattr(self, field.name)
+			string = field.name + " (" + str(value) + "x),"
+			if value == 1:
+				normal.append(string)
+			elif value > 1:
+				weak.append(string)
+			elif value == 0:
+				immune.append(string)
+			elif value < 1:
+				resistant.append(string)
+		total.append(normal)
+		total.append(weak)
+		total.append(immune)
+		total.append(resistant)
+		return total
+
 #Value represents the effectiveness of the Field AGAINST poke_type
    #Example: if poke_type = Fire/Rock, the value of Water is 4
 
@@ -100,7 +125,7 @@ class can_learn(models.Model):
 class Evolution(models.Model):
 	pokemon_id1 = models.ForeignKey(Pokemon, related_name='pokemon_1')
 	pokemon_id2 = models.ForeignKey(Pokemon, related_name='pokemon_2')
-	how = models.CharField(max_length=20)
+	how = models.CharField(max_length=100)
 	def __str__(self):
 		return self.how
 

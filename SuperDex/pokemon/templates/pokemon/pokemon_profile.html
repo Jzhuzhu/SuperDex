@@ -104,9 +104,9 @@
 			
 			<div class="one-half">
 				<h6>Type</h6>
-				<p>{{ pokemon.type }}</p>
+				<p>{{ pokemon.poke_type }}</p>
 				<hr />
-				<h6></h6>
+				<h6>Ability</h6>
 					<ul>
 						{% for ability in abilities %}
 							<li> {{ ability.name }} - {{ability.description}}</li>
@@ -122,9 +122,17 @@
 				<hr />
 				<h6>Evolution</h6>
 					<ul>
-								<li> Evolves from: </li>
-								<li>Evolves into: </li>
-							</ul>
+						<li>Evolves from: {% if evo_from %}
+											{{ evo_from.pokemon_id1.name }} - ({{evo_from.how}}
+										{% else %}
+											N/A
+										{% endif %}</li>
+						<li>Evolves into: {% if evo_to %}
+											{{ evo_to.pokemon_id2.name }} - ({{evo_to.how}}
+										{% else %}
+											N/A
+										{% endif %}</li>
+					</ul>
 				<hr />
 			</div>
 		</div>
@@ -137,21 +145,9 @@
 			<h6>Gender Ratio</h6>
 			<p>{{ pokemon.genderratio }}</p>
 			<hr />
-		
-		<h6>Game Locations</h6>
-			<ul>
-					<li> Location 1 </li>
-					<li> Location 2 </li>
-			</ul>
-			<hr />
-
 		<h3><a id="hatch"></a>Hatching this Pokémon</h3>
-			<h6>Hatch Time</h6>
-			<p>Hatch Time</p>
-			<hr />
-			
 			<h6>Egg Group</h6>
-			<p>{{ pokemon.egggroups}}</p>
+			<p>{{ pokemon.egggroups }}</p>
 			<hr />
 		</div>
 		<div class="two-third last">	
@@ -159,17 +155,37 @@
 		<h3><a id="battle"></a>Battling with this Pokémon </h3>
 		<h6>Type Effectiveness</h6>
 				<ul>
-							<li>Damaged normally by: </li>
-							<li>Weak to: </li>
-							<li>Immune to: </li>
-							<li>Resistant to: </li>
-							<li>Special Cases: </li>
-						</ul>
-				<hr />
+					{% with effective=Pokemon_type.get_effectiveness %}
+					<li>Damaged normally by: {% if not effective.0 %}
+												None
+											{% endif %}
+											{%for item in effective.0 %}
+												{{item}}
+											{% endfor %}</li>
+					<li>Weak to: {% if not effective.1 %}
+												None
+											{% endif %}
+											{%for item in effective.1 %}
+												{{item}}
+												{% endfor %} </li>
+					<li>Immune to: {% if not effective.2 %}
+												None
+											{% endif %}
+											{%for item in effective.2 %}
+												{{item}}
+											{% endfor %}</li>
+					<li>Resistant to: {% if not effective.3 %}
+												None
+											{% endif %} 
+											{%for item in effective.3 %}
+												{{item}}
+											{% endfor %}</li>
+					{% endwith %}
+				</ul>
+			<hr />
 		<h3> Training this Pokémon </h3>
 		<h6>Base Stats (out of 255)</h6>
 			<table>
-
 			<tr>
 			<td>
 				<table>

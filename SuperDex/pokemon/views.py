@@ -28,22 +28,36 @@ def search(request):
 	TM_move_list = []
 	for learn in can_learn_list:
 		learn_move = learn.move_id
-		TM_list.apppend(learn.TM)
+		TM_list.append(learn.TM)
 		TM_move_list.append(learn_move)
 	zip_TM = zip(TM_list, TM_move_list)
 
 	learnset_list = learnset.objects.filter(pokemon_id=pokemon)
 	level_list = []
 	level_move_list = []
-	for learnset in learnset_list:
-		learnset_move = learnset.move_id
-		level_list.append(learnset.level)
+	for lset in learnset_list:
+		learnset_move = lset.move_id
+		level_list.append(lset.level)
 		level_move_list.append(learnset_move)
 	zip_level = zip(level_list, level_move_list)
 
+	try:
+		evo_from = Evolution.objects.get(pokemon_id2=pokemon)	
+	except ObjectDoesNotExist:
+		evo_from = False
+
+	try:
+		evo_to = Evolution.objects.get(pokemon_id1=pokemon)
+	except ObjectDoesNotExist:
+		evo_to = False
+
+
+	Pokemon_type = poke_type.objects.get(poke_type = pokemon.poke_type)
+
+
 	context = RequestContext(request)
 	return render_to_response('pokemon/pokemon_profile.html', {"pokemon": pokemon, "abilities": abilities,
-	 "zip_TM":zip_TM, "zip_level":zip_level,}, context_instance=context)
+	 "zip_TM":zip_TM, "zip_level":zip_level, "evo_from":evo_from, "evo_to":evo_to, "Pokemon_type":Pokemon_type,}, context_instance=context)
 
 def pokemon_profile(request, pokemon_id):
 	#template = loader.get_template('pokemon/pokemon_profile.html')
