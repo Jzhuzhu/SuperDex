@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1728907b-8e18-4d3c-ad6e-28bed345c9fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_profile.html" afterPath="$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_profile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperDex.iws" />
@@ -40,7 +39,7 @@
       <file leaf-file-name="pokemon_profile.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="12" selection-start="5123" selection-end="5123" vertical-scroll-proportion="0.55773956" vertical-offset="1753" max-vertical-offset="5715">
+            <state line="160" column="0" selection-start="6212" selection-end="6212" vertical-scroll-proportion="0.48402947" vertical-offset="2203" max-vertical-offset="5640">
               <folding />
             </state>
           </provider>
@@ -490,7 +489,19 @@
       <created>1399071957647</created>
       <updated>1399071957647</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge branch 'master' of https://github.com/Jzhuzhu/SuperDex&#10;&#10;Conflicts:&#10;&#9;SuperDex/pokemon/views.py&#10;">
+      <created>1399072056636</created>
+      <updated>1399072056636</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Merge branch 'master' of https://github.com/Jzhuzhu/SuperDex&#10;&#10;Conflicts:&#10;&#9;SuperDex/pokemon/views.py&#10;">
+      <created>1399072117179</created>
+      <updated>1399072117179</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Merge branch 'master' of https://github.com/Jzhuzhu/SuperDex&#10;&#10;Conflicts:&#10;&#9;SuperDex/pokemon/views.py&#10;">
+      <created>1399072385843</created>
+      <updated>1399072385843</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -618,7 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="12" selection-start="5123" selection-end="5123" vertical-scroll-proportion="0.55773956" vertical-offset="1753" max-vertical-offset="5715">
+        <state line="160" column="0" selection-start="6212" selection-end="6212" vertical-scroll-proportion="0.48402947" vertical-offset="2203" max-vertical-offset="5640">
           <folding />
         </state>
       </provider>
