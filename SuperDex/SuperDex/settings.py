@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pokemon',
+    'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,6 +63,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'mydatabase',
     }
+}
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
 }
 
 # Internationalization

@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 
@@ -78,3 +79,11 @@ class Evolution(models.Model):
 	how = models.CharField(max_length=20)
 	def __str__(self):
 		return self.how
+
+class Natures(models.Model):
+	name = models.CharField(max_length=10)
+	increased_stat = models.CharField(max_length=10)
+	descrease_stat = models.CharField(max_length=10)
+
+class SearchBox(forms.Form):
+	query = forms.CharField(max_length=100)

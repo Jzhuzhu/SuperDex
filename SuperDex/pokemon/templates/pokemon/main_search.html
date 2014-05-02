@@ -71,8 +71,8 @@
 
 <div class="widget widget_search">
 				<h3 class="widget-title">Who's that Pokémon?</h3>
-				<form class="searchform" method="get" action="#">
-					<input type="text" name="s" value="type and hit enter" onFocus="this.value=''" onBlur="this.value='type and hit enter'"/>
+				<form class="searchform" method="get" action="search/">
+					<input type="text" name="q" id="id_q" value="{{ query }}" onFocus="this.value=''" onBlur="this.value='type and hit enter'"/>
 				</form>
 			</div>
 			<a href="main_search_compare.html">Want to compare two Pokémon?</a><br />
