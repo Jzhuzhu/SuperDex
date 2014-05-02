@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.core.exceptions import ObjectDoesNotExist
 
-from pokemon.models import * 
+from models import *
 
 # Create your views here.
 
@@ -57,10 +57,17 @@ def search(request):
     except ObjectDoesNotExist:
         evo_to = False
 
+    role_tokens = pokemon.rolestring.split(",")
+    role_list = []
+    for roletoken in role_tokens:
+        roleInt = int(roletoken)
+        role_list.append(Roles.objects.get(pk = roleInt))
+
+
     Pokemon_type = poke_type.objects.get(poke_type = pokemon.poke_type)
     context = RequestContext(request)
     return render_to_response('pokemon/pokemon_profile.html', {"pokemon": pokemon, "abilities": abilities,
-     "zip_TM":zip_TM, "zip_level":zip_level, "evo_from":evo_from, "evo_to":evo_to, "Pokemon_type":Pokemon_type,}, context_instance=context)
+     "zip_TM":zip_TM, "zip_level":zip_level, "evo_from":evo_from, "evo_to":evo_to, "role_list":role_list, "Pokemon_type":Pokemon_type,}, context_instance=context)
 
 def pokemon_profile(request, pokemon_id):
     #template = loader.get_template('pokemon/pokemon_profile.html')
