@@ -71,15 +71,21 @@
 
 <div class="widget widget_search">
 				<h3 class="widget-title">Who's the better Pokémon?</h3>
-				<form class="searchform" method="get" action="#">
-					<input type="text" name="p1" placeholder="enter first pokémon here"/>
+				<form class="searchform" method="get" action="/pokemon/comp_search/">
+					<input type="text" name="p1" value = "{{query1}}" placeholder="enter first pokémon here"required />
+					{% if error1 %}
+			       		<p style="color: red;">Pokemon not found.  Please try again</p>
+			  	  	{% endif %}
 					<h3 class="widget-title">or</h3>
-					<input type="text" name="p2" placeholder="enter second pokémon here"/>
+					<input type="text" name="p2" value = "{{query2}}" placeholder="enter second pokémon here" required/>
+					{% if error2 %}
+			       		<p style="color: red;">Pokemon not found.  Please try again</p>
+			  	  	{% endif %}
 					<input type="submit" value="Compare These Pokémon!"><br />
 				</form>
 			</div>
 			
-			<a href="main_search.html">I don't want to compare Pokémon</a><br />
+			<a href="pokemon/">I don't want to compare Pokémon</a><br />
 			<br />
 
 		</div>

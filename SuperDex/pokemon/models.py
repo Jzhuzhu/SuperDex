@@ -34,14 +34,17 @@ class poke_type(models.Model):
 			if field.name == "poke_type":
 				continue
 			value = getattr(self, field.name)
-			string = field.name + " (" + str(value) + "x),"
 			if value == 1:
+				string = field.name
 				normal.append(string)
 			elif value > 1:
+				string = field.name + " (" + str(value) + "x)"
 				weak.append(string)
 			elif value == 0:
+				string = field.name
 				immune.append(string)
 			elif value < 1:
+				string = field.name + " (" + str(value) + "x)"
 				resistant.append(string)
 		total.append(normal)
 		total.append(weak)
@@ -82,6 +85,8 @@ class Pokemon(models.Model):
 	basetotal = models.IntegerField()
 	def __str__(self):
 		return self.name
+	def get_fields(self):
+            return [(field) for field in Pokemon._meta.fields]
 
 class Ability(models.Model):
 	ability_id = models.IntegerField(primary_key=True)

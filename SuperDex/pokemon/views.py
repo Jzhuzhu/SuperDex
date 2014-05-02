@@ -15,7 +15,13 @@ def index(request):
 
 def search(request):
 	query = request.GET.get('q')
-	pokemon = Pokemon.objects.get(name=query)
+	try:
+		if query.isdigit():
+			pokemon = Pokemon.objects.get(pk=float(query))
+		else:
+			pokemon = Pokemon.objects.get(name=query)
+	except ObjectDoesNotExist:
+		return render(request, 'pokemon/main_search.html', {'error': True})
 
 	has_abilities = has_ability.objects.filter(pokemon_id=pokemon)
 	abilities = []
@@ -51,10 +57,7 @@ def search(request):
 	except ObjectDoesNotExist:
 		evo_to = False
 
-
 	Pokemon_type = poke_type.objects.get(poke_type = pokemon.poke_type)
-
-
 	context = RequestContext(request)
 	return render_to_response('pokemon/pokemon_profile.html', {"pokemon": pokemon, "abilities": abilities,
 	 "zip_TM":zip_TM, "zip_level":zip_level, "evo_from":evo_from, "evo_to":evo_to, "Pokemon_type":Pokemon_type,}, context_instance=context)
@@ -63,3 +66,44 @@ def pokemon_profile(request, pokemon_id):
 	#template = loader.get_template('pokemon/pokemon_profile.html')
 	context = {'test':'foobar'}
 	return render(request, 'pokemon/pokemon_profile.html', context)
+
+def index_comparison(request):
+	context = {'test':'foobar'}
+	return render(request, 'pokemon/main_search_compare.html', context)
+
+def comp_search(request):
+	query1 = request.GET.get('p1')
+	query2 = request.GET.get('p2')
+	try:
+		if query1.isdigit():
+			pokemon1 = Pokemon.objects.get(pk=float(query1))
+		else:
+			pokemon1 = Pokemon.objects.get(name=query1)
+	except ObjectDoesNotExist:
+		return render(request, 'pokemon/main_search_compare.html', {'error1': True})
+
+	try:
+		if query2.isdigit():
+			pokemon2 = Pokemon.objects.get(pk=float(query2))
+		else:
+			pokemon2 = Pokemon.objects.get(name=query2)
+	except ObjectDoesNotExist:
+		return render(request, 'pokemon/main_search_compare.html', {'error2': True})
+
+	has_abilities1 = has_ability.objects.filter(pokemon_id=pokemon1)
+	ability1 = []
+	for has in has_abilities1:
+		ability = has.ability_id
+		ability1.append(ability)
+	has_abilities2 = has_ability.objects.filter(pokemon_id=pokemon2)
+	ability2 = []
+	for has in has_abilities2:
+		ability = has.ability_id
+		ability2.append(ability)
+	ability_comp = zip(ability1,ability2)
+
+	type1 = poke_type.objects.get(poke_type = pokemon1.poke_type)
+	type2 = poke_type.objects.get(poke_type = pokemon2.poke_type)
+	context = RequestContext(request)
+	return render_to_response('pokemon/pokemon_comparison.html', {"pokemon1":pokemon1, "pokemon2":pokemon2,
+		"ability_comp":ability_comp, "type1":type1, "type2":type2,}, context_instance=context)

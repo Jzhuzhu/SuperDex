@@ -67,8 +67,18 @@
 
 <!-- Begin Container -->
 <div class="box">
-	<h1 class="title">{{ pokemon1 }} vs {{ pokemon2 }}: PokémonX is the stronger Pokémon</h1>
-	<p>Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+	<div class="intro">
+		<div class="outer none">
+		<ul class="social">
+			<li> <h1> {{ pokemon1.name }} vs {{ pokemon2.name }}</li>
+			<li><span class="inset"><img src="{{ pokemon1.imageurl }}"/></span></li>
+			<li><span class="inset"><img src="{{ pokemon2.imageurl }}"/></span></li>
+		</div>
+		<h1 class="title">PokémonX is the stronger Pokémon</h1>
+	</div>
+
+	<p> PokémonX  was chosen as the stronger Pokémon, because of *its superior stats* and *fewer type weaknesses*. </p>
+	<div class="clear"></div>
 	<div class="one-half">
 	<h4> Key Similarties </h4>	
 		<ul>
@@ -96,47 +106,219 @@
 	<hr />
 	<br />
 	<h4> Comparison by Base Stats </h4>
-	<p>Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-	<table width="100%">
-		<tr>
-			<td></td>
-			<th>{{ pokemon1.name }}</th>
-			<th>{{ pokemon2.name }}</th>
-		</tr>
-		<tr>
-			<th class="compare">HP</th>
-			<!-- example of highlighted stat -->
-			<td><span class="lite1">{{ pokemon1.basehp }}</span></td>
-			<td>{{ pokemon2.basehp }}X</td>
-		</tr>
-		<tr>
-			<th>Attack</th>
-			<td> {{ pokemon1.baseattack }}</td>
-			<td> {{ pokemon2.baseattack }}</td>
-		</tr>
-		<tr>
-			<th>Special Attack</th>
-			<td>{{ pokemon1.basespattack }}</td>
-			<!-- example of highlighted stat -->
-			<td><span class="lite1">{{ pokemon2.basespattack }}</span></td>
-		</tr>
-		<tr>
-			<th>Special Defense</th>
-			<td>{{ pokemon1.basespdefense }}</td>
-			<td>{{ pokemon2.basespdefense }}</td>
-		</tr>
-		<tr>
-			<th>Speed</th>
-			<td>{{ pokemon1.basespeed }}</td>
-			<td>{{ pokemon2.basespeed }}</td>
-		</tr>
-		<tr>
-			<th>Total</th>
-			<td>{{ pokemon1.basetotal }}</td>
-			<td>{{ pokemon2.basetotal }}</td>
-		</tr>
-		
-	</table>
+	<p>*Pokemon* has better overall stats. </p>
+<table>
+			<tr>
+				<th>{{ Pokémon1 }}</th>
+				<th>{{ Pokémon2 }}</th>
+			</tr>
+			<tr>
+			<td <td{% if pokemon1.basehp >= pokemon2.basehp %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon1 HP stat -->
+				<table>
+				<tr>
+				<th style="width: 75px;">HP</a>:
+				</th>
+				<th style="width: 30px;"> {{ pokemon1.basehp }}
+				</th>
+				<td style="background: #FF0000; width: {{ pokemon1.basehp }}px;">
+				</td></tr></table>
+			</td>
+			<td{% if pokemon1.basehp <= pokemon2.basehp %}
+					class="lite1"
+				{% endif %}	>
+				<!-- Pokémon2 HP stat -->
+				<table>
+				<tr>
+				<th style="width: 75px;">HP</a>:
+				</th>
+				<th style="width: 30px;"> {{ pokemon2.basehp }}
+				</th>
+				<td style="background: #FF0000; width: {{ pokemon2.basehp }}px;">
+				</td></tr></table>
+			</td>
+			</tr>
+			<tr>
+			<td{% if pokemon1.baseattack >= pokemon2.baseattack %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon1 Attack stat -->
+				<table>
+				<tr>
+				<th style="width: 75px;">Attack:
+				</th>
+				<th style="width: 30px;"> {{ pokemon1.baseattack }}
+				</th>
+				<td style="background: #F08030; width: {{ pokemon1.baseattack }}px;">
+				</td>
+				</tr>
+				</table>
+			</td>
+
+			<td{% if pokemon1.baseattack <= pokemon2.baseattack %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon2 Attack stat -->
+				<table>
+				<tr>
+				<th style="width: 75px;">Attack:
+				</th>
+				<th style="width: 30px;"> {{ pokemon2.baseattack }}
+				</th>
+				<td style="background: #F08030; width: {{ pokemon2.baseattack }}px;">
+				</td>
+				</tr>
+				</table>
+			</td>
+			
+			</tr>
+			<tr>
+			<td{% if pokemon1.basedefense >= pokemon2.basedefense %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon1 Defense stat -->
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Defense:
+				</th>
+				<th style="width: 30px;"> {{ pokemon1.basedefense }}
+				</th>
+				<td style="background: #F8D030; width: {{ pokemon1.basedefense }}px;">
+				</td></tr>
+				</table>
+			</td>
+			<td{% if pokemon1.basedefense <= pokemon2.basedefense %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon2 Defense stat -->
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Defense:
+				</th>
+				<th style="width: 30px;"> {{ pokemon2.basedefense }}
+				</th>
+				<td style="background: #F8D030; width: {{ pokemon2.basedefense}}px;">
+				</td></tr>
+				</table>
+			</td>
+			</tr>
+			<tr>
+			<td{% if pokemon1.basespattack >= pokemon2.basespattack %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon1 Sp.Atk stat -->
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;">Sp.Atk:
+				</th>
+				<th style=" width: 30px;"> {{ pokemon1.basespattack }}
+				</th>
+				<td style="background: #6890F0; width: {{ pokemon1.basespattack }}px;">
+				</td></tr>
+				</table>
+			</td>
+			<td{% if pokemon1.basespattack <= pokemon2.basespattack %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon2 Sp.Atk stat -->
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;">Sp.Atk:
+				</th>
+				<th style=" width: 30px;"> {{ pokemon2.basespattack }}
+				</th>
+				<td style="background: #6890F0; width: {{ pokemon2.basespattack }}px;">
+				</td></tr>
+				</table>
+			</td>
+			</tr>
+			<tr>
+			<!-- Pokémon1 Sp.Def stat -->
+			<td{% if pokemon1.basespdefense >= pokemon2.basespdefense %}
+					class="lite1"
+				{% endif %}	>
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Sp.Def:
+				</th>
+				<th style="width: 30px;"> {{ pokemon1.basespdefense }}
+				</th>
+				<td style="background: #78C850; width: {{ pokemon1.basespdefense }}px;">
+				</td></tr></table>
+			</td>
+			<!-- Pokémon2 Sp.Def stat -->
+			<td{% if pokemon1.basespdefense <= pokemon2.basespdefense %}
+					class="lite1"
+				{% endif %}	>
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Sp.Def:
+				</th>
+				<th style="width: 30px;"> {{ pokemon2.basespdefense }}
+				</th>
+				<td style="background: #78C850; width: {{ pokemon2.basespdefense }}px;">
+				</td></tr></table>
+			</td>
+			</tr>
+			<tr>
+			<td{% if pokemon1.basespeed >= pokemon2.basespeed %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon1 Speed stat -->
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Speed:
+				</th>
+				<th style="width: 30px;"> {{ pokemon1.basespeed }}
+				</th>
+				<td style="background: #F85888; width: {{ pokemon1.basespeed }}px;">
+				</td></tr></table>
+			</td>
+			<td{% if pokemon1.basespeed <= pokemon2.basespeed %}
+					class="lite1"
+				{% endif %}	>
+			<!-- Pokémon2 Speed stat -->
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Speed:
+				</th>
+				<th style="width: 30px;"> {{ pokemon2.basespeed }}
+				</th>
+				<td style="background: #F85888; width: {{ pokemon2.basespeed }}px;">
+				</td></tr></table>
+			</td>
+			</tr>
+			<tr>
+			<!--Pokémon1 total stat -->
+			<td {% if pokemon1.basespdefense >= pokemon2.basespdefense %}
+					class="lite1"
+				{% endif %}	>
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Total:
+				</th>
+				<th style="width: 30px;"> {{ pokemon1.basetotal }}
+				</th>
+				<td style="width: 255px;"> 
+				</td></tr></table>
+			</td>
+			<!--Pokémon2 total stat -->
+			<td {% if pokemon1.basespdefense <= pokemon2.basespdefense %}
+					class="lite1"
+				{% endif %}	>
+				<table cellspacing="0" cellpadding="0">
+				<tr>
+				<th style="width: 75px;"> Total:
+				</th>
+				<th style="width: 30px;"> {{ pokemon2.basetotal }}
+				</th>
+				<td style="width: 255px;"> 
+				</td></tr></table>
+			</td>
+			</tr>
+		</table>				
 	<br />
 	<hr>
 	<h4> Comparison by Abilities </h4>
@@ -148,55 +330,119 @@
 			<th>{{ pokemon1.name }}</th>
 			<th>{{ pokemon2.name }}</th>
 		</tr>
+		{% for ability in ability_comp %}
 		<tr>
-			<th class="compare">Ability #1</th>
-			<td>Ability</td>
-			<td>Ability</td>
+			<th class="compare">Ability #{{forloop.counter}}</th>
+			<td>{{ability.0.name}} - {{ability.0.description}}</td>
+			<td>{{ability.1.name}} - {{ability.1.description}}</td>
 		</tr>
-		<tr>
-			<th>Ability #2</th>
-			<td>Ability</td>
-			<td>Ability</td>
-		</tr>
-
+		{% endfor %}
 		
 	</table>
 	<hr />
-	<h4> Comparison by Type Advantages </h4>
+	<h4> Comparison by Type Weaknesses </h4>
 	<p>Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
 	<table width="100%">
 		<tr>
 			<td></td>
-			<th>Pokémon1</th>
-			<th>Pokémon2</th>
+			<th>{{ pokemon1.name }}</th>
+			<th>{{ pokemon2.name }}</th>
 		</tr>
 		<tr>
 			<th class="compare">Type</th>
-			<td>Pokémon1 Type</td>
-			<td>Pokémon2 Type</td>
+			<td>{{ pokemon1.poke_type }} </td>
+			<td>{{ pokemon2.poke_type }} </td>
 		</tr>
 		<tr>
 			<th>Normal</th>
-			<td>xY</td>
-			<td>xY</td>
+			<td>{{ type1.Normal }}x</td>
+			<td>{{ type2.Normal }}x</td>
 		</tr>
 		<tr>
 			<th>Fire</th>
-			<td>xY</td>
-			<td>xY</td>
+			<td>{{ type1.Fire }}x</td>
+			<td>{{ type2.Fire }}x</td>
 		</tr>
 		<tr>
 			<th>Water</th>
-			<td>xY</td>
-			<td>xY</td>
+			<td>{{ type1.Water }}x</td>
+			<td>{{ type2.Water }}x</td>
 		</tr>
 		<tr>
 			<th>Electric</th>
-			<td>xY</td>
-			<td>xY</td>
+			<td>{{ type1.Electric }}x</td>
+			<td>{{ type2.Electric }}x</td>
 		</tr>
-
-		
+		<tr>
+			<th>Grass</th>
+			<td>{{ type1.Grass }}x</td>
+			<td>{{ type2.Grass }}x</td>
+		</tr>
+		<tr>
+			<th>Ice</th>
+			<td>{{ type1.Ice }}x</td>
+			<td>{{ type2.Ice }}x</td>
+		</tr>
+		<tr>
+			<th>Fighting</th>
+			<td>{{ type1.Fighting }}x</td>
+			<td>{{ type2.Fighting }}x</td>
+		</tr>
+		<tr>
+			<th>Poison</th>
+			<td>{{ type1.Poison }}x</td>
+			<td>{{ type2.Poison }}x</td>
+		</tr>
+		<tr>
+			<th>Ground</th>
+			<td>{{ type1.Ground }}x</td>
+			<td>{{ type2.Ground }}x</td>
+		</tr>
+		<tr>
+			<th>Flying</th>
+			<td>{{ type1.Flying }}x</td>
+			<td>{{ type2.Flying }}x</td>
+		</tr>
+		<tr>
+			<th>Psychic</th>
+			<td>{{ type1.Psychic }}x</td>
+			<td>{{ type2.Psychic }}x</td>
+		</tr>
+		<tr>
+			<th>Bug</th>
+			<td>{{ type1.Bug }}x</td>
+			<td>{{ type2.Bug }}x</td>
+		</tr>
+		<tr>
+			<th>Rock</th>
+			<td>{{ type1.Rock }}x</td>
+			<td>{{ type2.Rock }}x</td>
+		</tr>
+		<tr>
+			<th>Ghost</th>
+			<td>{{ type1.Ghost }}x</td>
+			<td>{{ type2.Ghost }}x</td>
+		</tr>
+		<tr>
+			<th>Dragon</th>
+			<td>{{ type1.Dragon }}x</td>
+			<td>{{ type2.Dragon }}x</td>
+		</tr>
+		<tr>
+			<th>Dark</th>
+			<td>{{ type1.Dark }}x</td>
+			<td>{{ type2.Dark }}x</td>
+		</tr>
+		<tr>
+			<th>Steel</th>
+			<td>{{ type1.Steel }}x</td>
+			<td>{{ type2.Steel }}x</td>
+		</tr>
+		<tr>
+			<th>Fairy</th>
+			<td>{{ type1.Fairy }}x</td>
+			<td>{{ type2.Fairy }}x</td>
+		</tr>
 	</table>
 	<br />
 
@@ -212,33 +458,6 @@
 <!-- End Wrapper -->
 
 <!-- Begin Footer -->
-<div class="footer-wrapper">
-<div id="footer" class="four">
-		<div id="first" class="widget-area">
-			<div class="widget widget_archive">
-				<h3 class="widget-title">Recently Searched Pokémon</h3>
-				<ul>
-					<li><a href="#">Pokémon 1</a></li>
-					<li><a href="#">Pokémon 2</a></li>
-					<li><a href="#">Pokémon 3</a></li>
-					<li><a href="#">Pokémon 4</a></li>
-					<li><a href="#">Pokémon 5</a></li>
-		
-				</ul>
-			</div>
-		</div>
-		<div id="second" class="widget-area">
-			<div class="widget widget_archive">
-				<h3 class="widget-title">Recently Searched Comparisons</h3>
-				<ul>
-					<li><a href="#">Pokémon 1 vs Pokémon 2</a> </li>
-					<li><a href="#">Pokémon 3 vs Pokémon 2</a></li>
-		
-				</ul>
-			</div>
-		</div>
-	</div>
-</div> 
 <div class="site-generator-wrapper">
 	<div class="site-generator">SuperDex is a CS473 Project by Devon Balicki, James Cheng, Dalton Johnson, and Jeff Zhu <br />
 		Template Design Copyright Obscura 2012. Design by <a href="http://elemisfreebies.com">elemis</a>. All rights reserved. Pokedex Wallpaper distributed by <a href="http://www.superbwallpapers.com/games/pokedex-booting-15992/">Superb Wallpapers </a></div>

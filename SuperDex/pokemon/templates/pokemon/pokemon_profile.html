@@ -73,7 +73,7 @@
 <div class="widget widget_search">
 				<h3 class="widget-title">Who's that Pokémon?</h3>
 				<form class="searchform" method="get" action="/search/">
-					<input type="text" name="q" id="id_q" value="{{ query }}" onFocus="this.value=''" onBlur="this.value='type and hit enter'"/>
+					<input type="text" name="q" placeholder="type and hit enter" required/>
 				</form>
 			</div>
 			<a href="main_search_compare.html">Want to compare two Pokémon?</a><br />
@@ -89,7 +89,13 @@
 <!-- Begin Container -->
 <div class="box">
 <h1 class="title">{{ pokemon.name }}</h1>
-<h2 class="title">{{ pokemon.number}}, The {{ pokemon.nickname }}</h2>
+<h2 class="title">#{% if pokemon.number < 10 %}
+						00{{ pokemon.number}}
+					{% elif pokemon.number < 100 %}
+						0{{pokemon.number}}
+					{% else %}
+						{{ pokemon.number }}
+					{% endif %}, The {{ pokemon.nickname }}</h2>
 		
 		<div class="one-third">
 			<div class="outer none"><span class="inset">
@@ -98,7 +104,23 @@
 		
 		<div class="two-third last">
 			<h3>Who's that Pokémon?</h3>
-			<p>Description?</p>
+			<h6>{{ pokemon.name }} could make a great (Role) because it has superior Keystat</h6>
+			<p>If you use {{ pokemon.name }} as a  Role  </p>
+			<ul>
+				<li>Suggested Nature: </li>
+				<li>Suggested Moves: </li>
+				<li>Companion Pokémon: </li>
+			</ul>
+
+			<h6>{{ pokemon.name }} could make a great (Role) because it has superior Keystat</h6>
+			<p>If you use {{ pokemon.name }} as a (Role) </p>
+			<ul>
+				<li>Suggested Nature: </li>
+				<li>Suggested Moves: </li>
+				<li>Companion Pokémon: </li>
+			</ul>
+
+			<p>For more information about roles, see our <a href="roles.html">Roles section</a></p>
 			Navigate to: <a href="#catch">Catching this Pokémon</a>, <a href="#battle">Battling with this Pokémon</a>, <a href="#hatch">Hatching this Pokémon</a>, <a href="#learnset">Learnset</a>
 			<hr />
 			
@@ -160,25 +182,25 @@
 												None
 											{% endif %}
 											{%for item in effective.0 %}
-												{{item}}
+												{{item}},
 											{% endfor %}</li>
 					<li>Weak to: {% if not effective.1 %}
 												None
 											{% endif %}
 											{%for item in effective.1 %}
-												{{item}}
+												{{item}},
 												{% endfor %} </li>
 					<li>Immune to: {% if not effective.2 %}
 												None
 											{% endif %}
 											{%for item in effective.2 %}
-												{{item}}
+												{{item}},
 											{% endfor %}</li>
 					<li>Resistant to: {% if not effective.3 %}
 												None
 											{% endif %} 
 											{%for item in effective.3 %}
-												{{item}}
+												{{item}},
 											{% endfor %}</li>
 					{% endwith %}
 				</ul>
@@ -352,33 +374,6 @@
 <!-- End Wrapper -->
 
 <!-- Begin Footer -->
-<div class="footer-wrapper">
-<div id="footer" class="four">
-		<div id="first" class="widget-area">
-			<div class="widget widget_archive">
-				<h3 class="widget-title">Recently Searched Pokémon</h3>
-				<ul>
-					<li><a href="#">Pokémon 1</a></li>
-					<li><a href="#">Pokémon 2</a></li>
-					<li><a href="#">Pokémon 3</a></li>
-					<li><a href="#">Pokémon 4</a></li>
-					<li><a href="#">Pokémon 5</a></li>
-		
-				</ul>
-			</div>
-		</div>
-		<div id="second" class="widget-area">
-			<div class="widget widget_archive">
-				<h3 class="widget-title">Recently Searched Comparisons</h3>
-				<ul>
-					<li><a href="#">Pokémon 1 vs Pokémon 2</a> </li>
-					<li><a href="#">Pokémon 3 vs Pokémon 2</a></li>
-		
-				</ul>
-			</div>
-		</div>
-	</div>
-</div> 
 <div class="site-generator-wrapper">
 	<div class="site-generator">SuperDex is a CS473 Project by Devon Balicki, James Cheng, Dalton Johnson, and Jeff Zhu <br />
 		Template Design Copyright Obscura 2012. Design by <a href="http://elemisfreebies.com">elemis</a>. All rights reserved. Pokedex Wallpaper distributed by <a href="http://www.superbwallpapers.com/games/pokedex-booting-15992/">Superb Wallpapers </a></div>
