@@ -1,26 +1,26 @@
 Name,IncreasedStat,DecreasedStat
-Hardy,—,—
+Hardy,---,---
 Lonely,Attack,Defense
 Brave,Attack,Speed
 Adamant,Attack,Sp. Attack
 Naughty,Attack,Sp. Defense
 Bold,Defense,Attack
-Docile,—,—
+Docile,---,---
 Relaxed,Defense,Speed
 Impish,Defense,Sp. Attack
 Lax,Defense,Sp. Defense
 Timid,Speed,Attack
 Hasty,Speed,Defense
-Serious,—,—
+Serious,---,---
 Jolly,Speed,Sp. Attack
 Naive,Speed,Sp. Defense
 Modest,Sp. Attack,Attack
 Mild,Sp. Attack,Defense
 Quiet,Sp. Attack,Speed
-Bashful,—,—
+Bashful,---,---
 Rash,Sp. Attack,Sp. Defense
 Calm,Sp. Defense,Attack
 Gentle,Sp. Defense,Defense
 Sassy,Sp. Defense,Speed
 Careful,Sp. Defense,Sp. Attack
-Quirky,—,—
+Quirky,---,---

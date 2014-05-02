@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class poke_type(models.Model):
-	poke_type = models.CharField(max_length=20)
+	poke_type = models.CharField(max_length=20,primary_key=True)
 	Normal = models.DecimalField(max_digits=3, decimal_places=2)
 	Fighting = models.DecimalField(max_digits=3, decimal_places=2)
 	Flying = models.DecimalField(max_digits=3, decimal_places=2)
@@ -22,9 +22,11 @@ class poke_type(models.Model):
 	Dragon = models.DecimalField(max_digits=3, decimal_places=2)
 	Dark = models.DecimalField(max_digits=3, decimal_places=2)
 	Fairy = models.DecimalField(max_digits=3, decimal_places=2)
-	
 	def __str__(self):
 		return self.poke_type
+#Value represents the effectiveness of the Field AGAINST poke_type
+   #Example: if poke_type = Fire/Rock, the value of Water is 4
+
 
 class Pokemon(models.Model):
 	name = models.CharField(max_length=50)

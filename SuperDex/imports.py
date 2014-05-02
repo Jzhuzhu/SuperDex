@@ -34,7 +34,11 @@ def importpoke():
         p.nickname = Tokens[1]
         p.number = int(Tokens[2])
         p.imageurl = Tokens[3]
-        #p.type = Tokens[4]
+        unsorted = Tokens[4]
+        subtoks = unsorted.split("/")
+        subtoks.sort()
+        good = "/".join(subtoks)
+        p.poke_type = poke_type.objects.get(pk = good)
         p.genderratio = Tokens[5]
         p.catchrate = Tokens[6]
         p.egggroups = Tokens[7]
@@ -74,7 +78,7 @@ def importpoke():
         p.basetotal = int(Tokens[25])
 
         p.save()
-        #print p.name, "saved to database"
+        print(p.name, "saved to database")
 
     print(Pokemon.objects.count(), "Pokemons loaded")
 
@@ -82,7 +86,7 @@ def importabil():
     try:
         abilFile = open("../db/Ability.txt", "r")
     except OSError:
-        print("Error opening data file")
+        print("Error opening Pokemon.txt")
         sys.exit(1)
 
     while True:
@@ -109,7 +113,7 @@ def importmoves():
     try:
         movesFile = open("../db/Moves.txt", "r")
     except OSError:
-        print("Error opening data file")
+        print("Error opening Pokemon.txt")
         sys.exit(1)
 
     while True:
@@ -148,7 +152,7 @@ def importlearn():
     try:
         learnFile = open("../db/canlearn.txt", "r")
     except OSError:
-        print("Error opening data file")
+        print("Error opening Pokemon.txt")
         sys.exit(1)
 
     prevID = -1
@@ -166,7 +170,7 @@ def importlearn():
 
         pokemonID = int(Tokens[0])
         if pokemonID != prevID:
-                print("Learnset for Pokemon", prevID, "load complete")
+                print("can_learn for Pokemon", prevID, "load complete")
                 prevID = pokemonID
 
         c = can_learn()
@@ -174,6 +178,8 @@ def importlearn():
 
         moveID = int(Tokens[1])
         c.move_id= Moves.objects.get(pk = moveID)
+
+        c.TM = Tokens[3]
 
         c.save()
 
@@ -185,7 +191,7 @@ def importhasAbil():
     try:
         hasAbilFile = open("../db/hasability.txt", "r")
     except OSError:
-        print("Error opening data file")
+        print("Error opening Pokemon.txt")
         sys.exit(1)
 
     while True:
@@ -197,6 +203,9 @@ def importhasAbil():
 
         Tokens = hasAbilLine.split(",")
 
+        if not Tokens[0].isdigit():
+            continue
+
         h = has_ability()
         h.ability_id = Ability.objects.get(pk = int(Tokens[0]))
         h.pokemon_id = Pokemon.objects.get(pk = int(Tokens[1]))
@@ -207,7 +216,162 @@ def importhasAbil():
 
     print(has_ability.objects.count(), "Ability relations loaded")
     
-if __name__ == '__main__':
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SuperDex.settings")
+def importlset():
+    try:
+        lsetFile = open("../db/learnset.txt", "r")
+    except OSError:
+        print("Error opening Pokemon.txt")
+        sys.exit(1)
+    prevID = 0
+    while True:
+        lsetLine = lsetFile.readline()
 
-    main()
+        if len(lsetLine) == 0:
+            lsetFile.close()
+            break
+
+        Tokens = lsetLine.split(",")
+
+        if not Tokens[0].isdigit():
+            continue
+
+        pokemonID = int(Tokens[0])
+        if pokemonID != prevID:
+                print("Learnset for Pokemon", prevID, "load complete")
+                prevID = pokemonID
+
+        l = learnset()
+
+        l.pokemon_id = Pokemon.objects.get(pk = int(Tokens[0]))
+        l.move_id = Moves.objects.get(pk = int(Tokens[1]))
+        if Tokens[3].isdigit():
+            l.level = int(Tokens[3])
+        else:
+            l.level = 0
+
+        l.save()
+
+    print(learnset.objects.count(), "Learnsets loaded")
+
+def importnature():
+    try:
+        natureFile = open("../db/Nature.txt", "r")
+    except OSError:
+        print("Error opening Pokemon.txt")
+        sys.exit(1)
+
+    while True:
+        natureLine = natureFile.readline()
+
+        if len(natureLine) == 0:
+            natureFile.close()
+            break
+
+        Tokens = natureLine.split(",")
+
+        if Tokens[0] == "Name":
+            continue
+
+        n = Natures()
+        n.name = Tokens[0]
+        n.increased_stat = Tokens[1]
+        n.descrease_stat = Tokens[2]
+
+        n.save()
+
+        print("Nature" , n.name, "saved to database")
+
+    print(Natures.objects.count(), "Natures loaded")
+
+
+def importevo():
+    try:
+        evoFile = open("../db/evo_db.txt", "r")
+    except OSError:
+        print("Error opening Pokemon.txt")
+        sys.exit(1)
+
+    while True:
+        evoLine = evoFile.readline()
+
+        if len(evoLine) == 0:
+            evoFile.close()
+            break
+
+        Tokens = evoLine.split(",")
+
+        if not Tokens[0].isdigit():
+            continue
+
+        e = Evolution()
+        e.pokemon_id1 = Pokemon.objects.get(pk = int(Tokens[0]))
+        e.pokemon_id2 = Pokemon.objects.get(pk = int(Tokens[2]))
+        e.how = Tokens[4][1:-1]
+
+        e.save()
+
+        print("Evolution loaded for " , e.pokemon_id1.name)
+
+    print(Evolution.objects.count(), "Evolutions loaded")
+
+def importtypes():
+    try:
+        typesFile = open("../db/types_db.txt", "r")
+    except OSError:
+        print("Error opening data file")
+        sys.exit(1)
+
+    while True:
+        typesLine = typesFile.readline()
+
+        if len(typesLine) == 0:
+            typesFile.close()
+            break
+
+        Tokens = typesLine.split(",")
+
+        if len(Tokens) != 19:
+            print("Data for Type ", Tokens[0], "corrupted")
+            continue
+
+        t = poke_type()
+        unsorted = Tokens[0]
+        subtoks = unsorted.split("/")
+        subtoks.sort()
+        good = "/".join(subtoks)
+        t.poke_type = good
+        t.Normal = float(Tokens[1])
+        t.Fighting = float(Tokens[2])
+        t.Flying = float(Tokens[3])
+        t.Poison = float(Tokens[4])
+        t.Ground = float(Tokens[5])
+        t.Rock = float(Tokens[6])
+        t.Bug = float(Tokens[7])
+        t.Ghost = float(Tokens[8])
+        t.Steel = float(Tokens[9])
+        t.Fire = float(Tokens[10])
+        t.Water = float(Tokens[11])
+        t.Grass = float(Tokens[12])
+        t.Electric = float(Tokens[13])
+        t.Psychic = float(Tokens[14])
+        t.Ice = float(Tokens[15])
+        t.Dragon = float(Tokens[16])
+        t.Dark = float(Tokens[17])
+        t.Fairy = float(Tokens[18])
+
+        t.save()
+
+        print("Effectiveness of" , t.poke_type, "saved to database")
+
+    print(poke_type.objects.count(), "types loaded")
+
+def importall():
+   importtypes()
+   importpoke()
+   importmoves()
+   importabil()
+   importhasAbil()
+   importlearn()
+   importlset()
+   importevo()
+   importnature()
