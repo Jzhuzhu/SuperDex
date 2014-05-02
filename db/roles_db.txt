@@ -1,0 +1,18 @@
+rID,Role,RequiredStats,RequiredMoves,ComplementID,Suggested Nature,Important Moves,Complementary Roles
+1,Physical Sweeper,Attack/Speed,,2/5/17/9/10/12/15 ,Adamant,Strong physical attacks/maybe a status move,Hazard Lead or Suicide Lead/Special Sweeper/Special Wall/Healer/Toxi-wall/toxi-trapper
+2,Special Sweeper,Sp. Attack/Speed,,1/4/17/9/10/12/15,Modest,Strong special attacks/maybe a status move,Hazard Lead or Suicide Lead/Physical Sweeper/Physical Wall/Healer/toxi-wall/toxi-trapper
+3,Mixed Sweeper,Attack/Sp. Attack/Speed,,3/17/9/10/12/15 ,Bashful/Docile/Hardy/Quirky/Serious,Strong physical attack/strong special attack/maybe a status move,Hazard Lead or Suicide Lead/Mixed Sweeper/Healer/toxi-wall/toxi-trapper
+4,Physical Wall,Defense/HP,,12/15/5/7/8/9/10/1/2,Relaxed/Careful/Impish/Lax,,Hazard Lead or Suicide Lead/Special Wall/tank/toxi-wall/toxi-trapper/Physical Sweeper/Special Sweeper
+5,Special Wall,Sp. Defense/HP,,12/15/5/7/8/9/10/1/2,Relaxed/Careful/Impish/Calm,,Hazard Lead/Physical Wall
+6,Mixed Wall,Defense/Sp. Defense/HP,,1/2/3,Relaxed/Careful,,Hazard Lead/Physical Wall
+7,Physical Tank,HP/Attack/Defense,,1/2/3/12/15/16,Brave/Relaxed,Rest/STAB Moves,Hazard Lead or Suicide Lead/Mixed Sweeper/Physical Sweeper/Special Sweeper
+8,Special Tank,HP/Sp. Attack/Sp. Defense,,1/2/3/12/15/16,Quiet/Sassy,,Hazard Lead or Suicide Lead/Mixed Sweeper/Physical Sweeper/Special Sweeper
+9,Toxi-walls,Defense/Sp. Attack/HP,92/(152 or 273),1/2/3,Relaxed/Careful/Impish/Calm,Toxic/Rest or Wish,
+10,Toxi-trappers,Defense/Sp. Attack/HP,92/(152 or 273)/(20 or 335 or 128 or 587 or 83 or 611 or 463 or 212 or 328 or 169 or 250 or 35),1/2/3,Relaxed/Careful/Impish,Toxic/Move that Prevents Escape/Rest or Wish,
+11,Speedy Status Annoyer,Speed,(186 or 213 or 86 or 109 or 137),1/2/3,Modest/Timid,Status inflicting moves/evasiveness improving moves/1-2 attack moves,Mixed Sweeper/Physical Sweeper/Physical Sweeper
+12,Hazard Lead,HP/Speed,(446 or 191 or 20),1/2/3/17,Timid/Jolly,Stealth Rock or Spikes or Toxic Spikes,Healer/Mixed Sweeper/Physical Sweeper/Physical Sweeper
+13,Physical Anti-lead,Attack/Speed,269,1/2/3,Hasty/Naive,Taunt/Physical STAB Moves,Mixed Sweeper/Physical Sweeper/Physical Sweeper
+14,Special Anti-lead,Sp. Attack/Speed,269,1/2/3,Hasty/Naive,Taunt/Special STAB Moves,Mixed Sweeper/Physical Sweeper/Physical Sweeper
+15,Speedy Suicide lead,Speed,(446 or 191 or 390)/(153 or 120),1/2/3,Hasty/Naive,Stealth Rock or Spikes or Toxic Spikes/Explosion or Self-destruct/maybe Taunt,Mixed Sweeper/Physical Sweeper/Physical Sweeper
+16,Tank Suicide lead,HP,(446 or 191 or 390)/(153 or 120),1/2/3,Brave/Relaxed/Jolly,Stealth Rock or Spikes or Toxic Spikes/Explosion or Self-destruct/maybe Taunt,Mixed Sweeper/Physical Sweeper/Physical Sweeper
+17,Healer,HP/Defense/Sp. Defense,(215 or 312),1/2/3/9/10,Calm/Bold,Heal Bell/Aromatherapy/Softboiled/Rest/Refresh/Wish/Light Screen/Reflect/Status Inducing Moves,Mixed Sweeper/Physical Sweeper/Physical Sweeper/Toxi-walls/Toxi-trappers

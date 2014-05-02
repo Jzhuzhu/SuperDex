@@ -453,9 +453,9 @@ hr {
     font-weight: bold;
 }
 .lite1 {
-    color: green;
+    color: #86aca3;
     font-weight:bold;
-    border-bottom: 1px dotted green;
+    border-bottom: 1px dotted #86aca3;
 }
 .lite2 {
     border-bottom: 1px dotted #86aca3
