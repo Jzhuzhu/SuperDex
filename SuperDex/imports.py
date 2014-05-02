@@ -10,8 +10,8 @@ from pokemon.models import *
 def importpoke():
     try:
         pokeFile = open("../db/Pokemon_db.txt", "r")
-    except IOError, inst:
-        print "Error opening Pokemon.txt"
+    except OSError:
+        print("Error opening Pokemon.txt")
         sys.exit(1)
 
     while True:
@@ -23,7 +23,7 @@ def importpoke():
 
         Tokens = pokeLine.split(",")
         if len(Tokens) != 26:
-            print "Data for ", Tokens[0], "corrupted"
+            print("Data for ", Tokens[0], "corrupted")
             continue
 
         if Tokens[0] == "Name":
@@ -76,13 +76,13 @@ def importpoke():
         p.save()
         #print p.name, "saved to database"
 
-    print Pokemon.objects.count(), "Pokemons loaded"
+    print(Pokemon.objects.count(), "Pokemons loaded")
 
 def importabil():
     try:
         abilFile = open("../db/Ability.txt", "r")
-    except IOError, inst:
-        print "Error opening data file"
+    except OSError:
+        print("Error opening data file")
         sys.exit(1)
 
     while True:
@@ -101,15 +101,15 @@ def importabil():
 
         a.save()
 
-        print "Ability" , a.ability_id, "saved to database"
+        print("Ability" , a.ability_id, "saved to database")
 
-    print Ability.objects.count(), "Abilities loaded"
+    print(Ability.objects.count(), "Abilities loaded")
 
 def importmoves():
     try:
         movesFile = open("../db/Moves.txt", "r")
-    except IOError, inst:
-        print "Error opening data file"
+    except OSError:
+        print("Error opening data file")
         sys.exit(1)
 
     while True:
@@ -122,7 +122,7 @@ def importmoves():
         Tokens = movesLine.split(",")
 
         if len(Tokens) != 8:
-            print "Data for move ", Tokens[1], "corrupted"
+            print("Data for move ", Tokens[1], "corrupted")
             continue
 
         if Tokens[0] == "move_id":
@@ -140,15 +140,15 @@ def importmoves():
 
         m.save()
 
-        print "Move" , m.move_id, "saved to database"
+        print("Move" , m.move_id, "saved to database")
 
-    print Moves.objects.count(), "Moves loaded"
+    print(Moves.objects.count(), "Moves loaded")
 
 def importlearn():
     try:
         learnFile = open("../db/canlearn.txt", "r")
-    except IOError, inst:
-        print "Error opening data file"
+    except OSError:
+        print("Error opening data file")
         sys.exit(1)
 
     prevID = -1
@@ -166,7 +166,7 @@ def importlearn():
 
         pokemonID = int(Tokens[0])
         if pokemonID != prevID:
-                print "Learnset for Pokemon", prevID, "load complete"
+                print("Learnset for Pokemon", prevID, "load complete")
                 prevID = pokemonID
 
         c = can_learn()
@@ -179,13 +179,13 @@ def importlearn():
 
         #print "Ability" , a.learnity_id, "saved to database"
 
-    print can_learn.objects.count(), "Abilities loaded"
+    print(can_learn.objects.count(), "Abilities loaded")
     
 def importhasAbil():
     try:
         hasAbilFile = open("../db/hasability.txt", "r")
-    except IOError, inst:
-        print "Error opening data file"
+    except OSError:
+        print("Error opening data file")
         sys.exit(1)
 
     while True:
@@ -205,7 +205,7 @@ def importhasAbil():
 
         #print "Ability" , a.hasAbility_id, "saved to database"
 
-    print has_ability.objects.count(), "Ability relations loaded"
+    print(has_ability.objects.count(), "Ability relations loaded")
     
 if __name__ == '__main__':
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SuperDex.settings")
