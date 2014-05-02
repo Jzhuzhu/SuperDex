@@ -104,6 +104,25 @@ def comp_search(request):
 
 	type1 = poke_type.objects.get(poke_type = pokemon1.poke_type)
 	type2 = poke_type.objects.get(poke_type = pokemon2.poke_type)
+	sumtype1 = poke_type.objects.filter(poke_type = pokemon1.poke_type).values_list(flat=True)
+	sumtype2 = poke_type.objects.filter(poke_type = pokemon2.poke_type).values_list(flat=True)
+	sum1 = 0.0
+	sum2 = 0.0
+
+	for i in range(1,len(sumtype1)):
+		sum1 += sumtype1[0][i]
+		sum2 += sumtype2[0][i]
+
+	if pokemon1.basetotal > pokemon2.basetotal:
+		pokemon_stat = pokemon1
+	elif pokemon1.basetotal < pokemon2.basetotal:
+		pokemon_stat = pokemon2
+	
+	if sum1 > sum2:
+		pokemon_less_weak = pokemon1
+	else:
+		pokemon_less_weak = pokemon2
+
 	context = RequestContext(request)
 	return render_to_response('pokemon/pokemon_comparison.html', {"pokemon1":pokemon1, "pokemon2":pokemon2,
-		"ability_comp":ability_comp, "type1":type1, "type2":type2,}, context_instance=context)
+		"ability_comp":ability_comp, "type1":type1, "type2":type2, "pokemon_stat":pokemon_stat, "pokemon_less_weak":pokemon_less_weak,}, context_instance=context)

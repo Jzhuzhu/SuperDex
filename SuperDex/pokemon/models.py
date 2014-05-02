@@ -85,8 +85,6 @@ class Pokemon(models.Model):
 	basetotal = models.IntegerField()
 	def __str__(self):
 		return self.name
-	def get_fields(self):
-            return [(field) for field in Pokemon._meta.fields]
 
 class Ability(models.Model):
 	ability_id = models.IntegerField(primary_key=True)
