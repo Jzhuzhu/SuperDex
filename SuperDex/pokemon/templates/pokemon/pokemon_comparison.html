@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
+{% load staticfiles %}
 <html lang="en-US">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>SuperDex</title>
-<link rel="stylesheet" type="text/css" media="all" href="style.css" />
-<link rel="stylesheet" type="text/css" href="style/css/media-queries.css" />
-<link rel="stylesheet" type="text/css" href="style/js/player/mediaelementplayer.css" />
+<link rel="stylesheet" type="text/css" media="all" href="{% static 'style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'style/css/media-queries.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'style/js/player/mediaelementplayer.css' %}" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700' rel="stylesheet" type='text/css'>
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
@@ -14,19 +15,19 @@
 <!--[if IE 9]>
 <link rel="stylesheet" type="text/css" href="style/css/ie9.css" media="all" />
 <![endif]-->
-<script type="text/javascript" src="style/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="style/js/ddsmoothmenu.js"></script>
-<script type="text/javascript" src="style/js/retina.js"></script>
-<script type="text/javascript" src="style/js/selectnav.js"></script>
-<script type="text/javascript" src="style/js/jquery.masonry.min.js"></script>
-<script type="text/javascript" src="style/js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="style/js/jquery.backstretch.min.js"></script>
-<script type="text/javascript" src="style/js/mediaelement.min.js"></script>
-<script type="text/javascript" src="style/js/mediaelementplayer.min.js"></script>
-<script type="text/javascript" src="style/js/jquery.dcflickr.1.0.js"></script>
-<script type="text/javascript" src="style/js/twitter.min.js"></script>
+<script type="text/javascript" src="{% static 'style/js/jquery-1.7.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/ddsmoothmenu.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/retina.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/selectnav.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/jquery.masonry.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/jquery.fitvids.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/jquery.backstretch.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/mediaelement.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/mediaelementplayer.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/jquery.dcflickr.1.0.js' %}"></script>
+<script type="text/javascript" src="{% static 'style/js/twitter.min.js' %}"></script>
 <script type="text/javascript">
-	$.backstretch("style/images/bg/pokedex-booting_mod.jpg");
+	$.backstretch("{% static 'style/images/bg/pokedex-booting_mod.jpg' %}");
 </script>
 </head>
 <body>
@@ -38,7 +39,7 @@
 		<!-- Begin Logo -->
 		<div class="logo">
 		    <a href="main_search.html">
-				<img src="style/images/Superdex_logo.png" alt="" />
+				<img src="{% static 'style/images/Superdex_logo.png' %}" alt="" />
 			</a>
 	    </div>
 		<!-- End Logo -->
@@ -66,7 +67,7 @@
 
 <!-- Begin Container -->
 <div class="box">
-	<h1 class="title">Pokémon1 vs Pokémon2: PokémonX is the stronger Pokémon</h1>
+	<h1 class="title">{{ pokemon1 }} vs {{ pokemon2 }}: PokémonX is the stronger Pokémon</h1>
 	<p>Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
 	<div class="one-half">
 	<h4> Key Similarties </h4>	
@@ -99,40 +100,40 @@
 	<table width="100%">
 		<tr>
 			<td></td>
-			<th>Pokémon1</th>
-			<th>Pokémon2</th>
+			<th>{{ pokemon1.name }}</th>
+			<th>{{ pokemon2.name }}</th>
 		</tr>
 		<tr>
 			<th class="compare">HP</th>
 			<!-- example of highlighted stat -->
-			<td><span class="lite1">X</span></td>
-			<td>X</td>
+			<td><span class="lite1">{{ pokemon1.basehp }}</span></td>
+			<td>{{ pokemon2.basehp }}X</td>
 		</tr>
 		<tr>
 			<th>Attack</th>
-			<td>X</td>
-			<td>X</td>
+			<td> {{ pokemon1.baseattack }}</td>
+			<td> {{ pokemon2.baseattack }}</td>
 		</tr>
 		<tr>
 			<th>Special Attack</th>
-			<td>X</td>
+			<td>{{ pokemon1.basespattack }}</td>
 			<!-- example of highlighted stat -->
-			<td><span class="lite1">X</span></td>
+			<td><span class="lite1">{{ pokemon2.basespattack }}</span></td>
 		</tr>
 		<tr>
 			<th>Special Defense</th>
-			<td>X</td>
-			<td>X</td>
+			<td>{{ pokemon1.basespdefense }}</td>
+			<td>{{ pokemon2.basespdefense }}</td>
 		</tr>
 		<tr>
 			<th>Speed</th>
-			<td>X</td>
-			<td>X</td>
+			<td>{{ pokemon1.basespeed }}</td>
+			<td>{{ pokemon2.basespeed }}</td>
 		</tr>
 		<tr>
 			<th>Total</th>
-			<td>X</td>
-			<td>X</td>
+			<td>{{ pokemon1.basetotal }}</td>
+			<td>{{ pokemon2.basetotal }}</td>
 		</tr>
 		
 	</table>
@@ -144,8 +145,8 @@
 	<table width="100%">
 		<tr>
 			<td></td>
-			<th>Pokémon1</th>
-			<th>Pokémon2</th>
+			<th>{{ pokemon1.name }}</th>
+			<th>{{ pokemon2.name }}</th>
 		</tr>
 		<tr>
 			<th class="compare">Ability #1</th>
@@ -243,6 +244,6 @@
 		Template Design Copyright Obscura 2012. Design by <a href="http://elemisfreebies.com">elemis</a>. All rights reserved. Pokedex Wallpaper distributed by <a href="http://www.superbwallpapers.com/games/pokedex-booting-15992/">Superb Wallpapers </a></div>
 </div>
 <!-- End Footer --> 
-<script type="text/javascript" src="style/js/scripts.js"></script>
+<script type="text/javascript" src="{% static 'style/js/scripts.js' %}"></script>
 </body>
 </html>
