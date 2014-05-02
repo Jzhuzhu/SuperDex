@@ -2,16 +2,17 @@ __author__ = 'jamescheng'
 
 #!/usr/bin/env python
 
-import os, sys, getopt, time, datetime
+import os, sys, getopt, time, datetime, itertools
 import glob, operator
 from collections import defaultdict
 from pokemon.models import *
 
+
 def importpoke():
     try:
         pokeFile = open("../db/Pokemon_db.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening Pokemon.txt"
         sys.exit(1)
 
     while True:
@@ -23,7 +24,7 @@ def importpoke():
 
         Tokens = pokeLine.split(",")
         if len(Tokens) != 26:
-            print("Data for ", Tokens[0], "corrupted")
+            print "Data for ", Tokens[0], "corrupted"
             continue
 
         if Tokens[0] == "Name":
@@ -78,15 +79,15 @@ def importpoke():
         p.basetotal = int(Tokens[25])
 
         p.save()
-        print(p.name, "saved to database")
+        #print p.name, "saved to database"
 
-    print(Pokemon.objects.count(), "Pokemons loaded")
+    print Pokemon.objects.count(), "Pokemons loaded"
 
 def importabil():
     try:
         abilFile = open("../db/Ability.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
 
     while True:
@@ -105,15 +106,15 @@ def importabil():
 
         a.save()
 
-        print("Ability" , a.ability_id, "saved to database")
+        print "Ability" , a.ability_id, "saved to database"
 
-    print(Ability.objects.count(), "Abilities loaded")
+    print Ability.objects.count(), "Abilities loaded"
 
 def importmoves():
     try:
         movesFile = open("../db/Moves.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
 
     while True:
@@ -126,7 +127,7 @@ def importmoves():
         Tokens = movesLine.split(",")
 
         if len(Tokens) != 8:
-            print("Data for move ", Tokens[1], "corrupted")
+            print "Data for move ", Tokens[1], "corrupted"
             continue
 
         if Tokens[0] == "move_id":
@@ -144,15 +145,15 @@ def importmoves():
 
         m.save()
 
-        print("Move" , m.move_id, "saved to database")
+        print "Move" , m.move_id, "saved to database"
 
-    print(Moves.objects.count(), "Moves loaded")
+    print Moves.objects.count(), "Moves loaded"
 
 def importlearn():
     try:
         learnFile = open("../db/canlearn.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
 
     prevID = -1
@@ -170,7 +171,7 @@ def importlearn():
 
         pokemonID = int(Tokens[0])
         if pokemonID != prevID:
-                print("can_learn for Pokemon", prevID, "load complete")
+                print "can_learn for Pokemon", prevID, "load complete"
                 prevID = pokemonID
 
         c = can_learn()
@@ -185,13 +186,13 @@ def importlearn():
 
         #print "Ability" , a.learnity_id, "saved to database"
 
-    print(can_learn.objects.count(), "Abilities loaded")
+    print can_learn.objects.count(), "can_learn relations loaded"
     
 def importhasAbil():
     try:
         hasAbilFile = open("../db/hasability.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
 
     while True:
@@ -214,21 +215,29 @@ def importhasAbil():
 
         #print "Ability" , a.hasAbility_id, "saved to database"
 
-    print(has_ability.objects.count(), "Ability relations loaded")
+    print has_ability.objects.count(), "Ability relations loaded"
     
 def importlset():
     try:
         lsetFile = open("../db/learnset.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
+
+    #counter= 0
     prevID = 0
     while True:
+
+
         lsetLine = lsetFile.readline()
 
         if len(lsetLine) == 0:
             lsetFile.close()
             break
+        #Debug
+        #if counter >= 50:
+        #    lsetFile.close()
+        #    break
 
         Tokens = lsetLine.split(",")
 
@@ -237,27 +246,31 @@ def importlset():
 
         pokemonID = int(Tokens[0])
         if pokemonID != prevID:
-                print("Learnset for Pokemon", prevID, "load complete")
+                print "Learnset for Pokemon", prevID, "load complete"
                 prevID = pokemonID
 
         l = learnset()
 
         l.pokemon_id = Pokemon.objects.get(pk = int(Tokens[0]))
         l.move_id = Moves.objects.get(pk = int(Tokens[1]))
-        if Tokens[3].isdigit():
-            l.level = int(Tokens[3])
+        #print Tokens[3][:-1]
+        if Tokens[3][:-1].isdigit():
+            l.level = int(Tokens[3][:-1])
+            #print l.level
         else:
             l.level = 0
 
         l.save()
 
-    print(learnset.objects.count(), "Learnsets loaded")
+        #counter += 1
+
+    print learnset.objects.count(), "Learnsets loaded"
 
 def importnature():
     try:
         natureFile = open("../db/Nature.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
 
     while True:
@@ -279,16 +292,16 @@ def importnature():
 
         n.save()
 
-        print("Nature" , n.name, "saved to database")
+        print "Nature" , n.name, "saved to database"
 
-    print(Natures.objects.count(), "Natures loaded")
+    print Natures.objects.count(), "Natures loaded"
 
 
 def importevo():
     try:
         evoFile = open("../db/evo_db.txt", "r")
-    except OSError:
-        print("Error opening Pokemon.txt")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
 
     while True:
@@ -310,15 +323,15 @@ def importevo():
 
         e.save()
 
-        print("Evolution loaded for " , e.pokemon_id1.name)
+        print "Evolution loaded for " , e.pokemon_id1.name
 
-    print(Evolution.objects.count(), "Evolutions loaded")
+    print Evolution.objects.count(), "Evolutions loaded"
 
 def importtypes():
     try:
         typesFile = open("../db/types_db.txt", "r")
-    except OSError:
-        print("Error opening data file")
+    except IOError, inst:
+        print "Error opening data file"
         sys.exit(1)
 
     while True:
@@ -331,7 +344,7 @@ def importtypes():
         Tokens = typesLine.split(",")
 
         if len(Tokens) != 19:
-            print("Data for Type ", Tokens[0], "corrupted")
+            print "Data for Type ", Tokens[0], "corrupted"
             continue
 
         t = poke_type()
@@ -361,17 +374,144 @@ def importtypes():
 
         t.save()
 
-        print("Effectiveness of" , t.poke_type, "saved to database")
+        print "Effectiveness of" , t.poke_type, "saved to database"
 
-    print(poke_type.objects.count(), "types loaded")
+    print poke_type.objects.count(), "types loaded"
+
+def gentypes():
+    typeDict = {}
+    typeDict["Normal"] = [1.0,2.0,1.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]
+    typeDict["Fighting"] = [1.0,1.0,2.0,1.0,1.0,0.5,0.5,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,0.5,2.0]
+    typeDict["Flying"] = [1.0,0.5,1.0,1.0,0.0,2.0,0.5,1.0,1.0,1.0,1.0,0.5,2.0,1.0,2.0,1.0,1.0,1.0]
+    typeDict["Bug"] = [1.0,0.5,2.0,1.0,0.5,2.0,1.0,1.0,1.0,2.0,1.0,0.5,1.0,1.0,1.0,1.0,1.0,1.0]
+    typeDict["Ground"] = [1.0,1.0,1.0,0.5,1.0,0.5,1.0,1.0,1.0,1.0,2.0,2.0,0.0,1.0,2.0,1.0,1.0,1.0]
+    typeDict["Rock"] = [0.5,2.0,0.5,0.5,2.0,1.0,1.0,1.0,2.0,0.5,2.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0]
+    typeDict["Poison"] = [1.0,0.5,1.0,0.5,0.0,1.0,0.5,1.0,1.0,1.0,1.0,0.5,1.0,2.0,1.0,1.0,1.0,0.5]
+    typeDict["Ghost"] = [0.0,0.0,1.0,0.5,1.0,1.0,0.5,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0]
+    typeDict["Steel"] = [0.5,2.0,0.5,0.0,2.0,0.5,0.5,1.0,0.5,2.0,1.0,0.5,1.0,0.5,0.5,0.5,1.0,0.5]
+    typeDict["Fire"] = [1.0,1.0,1.0,1.0,2.0,2.0,0.5,1.0,0.5,0.5,2.0,0.5,1.0,1.0,0.5,1.0,1.0,0.5]
+    typeDict["Water"] = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.5,0.5,0.5,2.0,2.0,1.0,0.5,1.0,1.0,1.0]
+    typeDict["Grass"] = [1.0,1.0,2.0,2.0,0.5,1.0,2.0,1.0,1.0,2.0,0.5,0.5,0.5,1.0,2.0,1.0,1.0,1.0]
+    typeDict["Electric"] = [1.0,1.0,0.5,1.0,2.0,1.0,1.0,1.0,0.5,1.0,1.0,1.0,0.5,1.0,1.0,1.0,1.0,1.0]
+    typeDict["Psychic"] = [1.0,0.5,1.0,1.0,1.0,1.0,2.0,2.0,1.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0,2.0,1.0]
+    typeDict["Ice"] = [1.0,2.0,1.0,1.0,1.0,2.0,1.0,1.0,2.0,2.0,1.0,1.0,1.0,1.0,0.5,1.0,1.0,1.0]
+    typeDict["Dragon"] = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.5,0.5,0.5,0.5,1.0,2.0,2.0,1.0,2.0]
+    typeDict["Dark"] = [1.0,2.0,1.0,1.0,1.0,1.0,2.0,0.5,1.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,0.5,2.0]
+    typeDict["Fairy"] = [1.0,0.5,1.0,2.0,1.0,1.0,0.5,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.5,1.0]
+
+    sortedtypeDict = sorted(typeDict)
+
+    type_list = []
+    for type in sortedtypeDict:
+        type_list.append(type)
+    #print type_list
+
+    all_combos = itertools.combinations(type_list, 2)
+    combos_list = [list(c) for c in all_combos]
+    for combo in combos_list:
+        tlist1 = typeDict[combo[0]]
+        tlist2 = typeDict[combo[1]]
+        if len(tlist1) != len(tlist2):
+            print "Corrupted type list for ", combo
+
+        mixtlist = [0.0 for x in xrange(len(tlist1))]
+        for i in xrange(len(tlist1)):
+            mixtlist[i] = float(tlist1[i]) * float(tlist2[i])
+
+        mixkey = "/".join(combo)
+        typeDict[mixkey] = mixtlist
+
+    #for type, tlist in typeDict.iteritems():
+    #    print type, ":", tlist
+
+    return typeDict
+
+def importroles():
+    try:
+        rolesFile = open("../db/roles_db.txt", "r")
+    except IOError, inst:
+        print "Error opening data file"
+        sys.exit(1)
+
+    while True:
+        rolesLine = rolesFile.readline()
+
+        if len(rolesLine) == 0:
+            rolesFile.close()
+            break
+
+        Tokens = rolesLine.split(",")
+
+        if len(Tokens) != 8:
+            print "Data for role ", Tokens[1], "corrupted"
+            continue
+
+        if not Tokens[0].isdigit():
+            continue
+
+        r = Roles()
+        r.rID = int(Tokens[0])
+        r.name = Tokens[1]
+        r.reqStats = Tokens[2]
+        r.reqMoves = Tokens[3]
+        r.compIDs = Tokens[4]
+        r.suggNat = Tokens[5]
+        r.impMoves = Tokens[6]
+        r.compRoles = Tokens[7]
+
+        r.save()
+
+        print "Role" , r.name, "saved to database with reqStats and compIDs", r.reqStats, r.compIDs
+
+    print Roles.objects.count(), "Roles loaded"
+    
+    
+def populatetypes():
+        
+    typeDict = gentypes()
+        
+    for type, tlist in typeDict.iteritems():
+        t = poke_type()
+        #unsorted = Tokens[0]
+        #subtoks = unsorted.split("/")
+        #subtoks.sort()
+        #good = "/".join(subtoks)
+        t.poke_type = type
+        t.Normal = tlist[0]
+        t.Fighting = tlist[1]
+        t.Flying = tlist[2]
+        t.Poison = tlist[3]
+        t.Ground = tlist[4]
+        t.Rock = tlist[5]
+        t.Bug = tlist[6]
+        t.Ghost = tlist[7]
+        t.Steel = tlist[8]
+        t.Fire = tlist[9]
+        t.Water = tlist[10]
+        t.Grass = tlist[11]
+        t.Electric = tlist[12]
+        t.Psychic = tlist[13]
+        t.Ice = tlist[14]
+        t.Dragon = tlist[15]
+        t.Dark = tlist[16]
+        t.Fairy = tlist[17]
+
+        t.save()
+
+        print "Effectiveness of" , t.poke_type, "saved to database"
+
+    print poke_type.objects.count(), "types loaded"
 
 def importall():
-   importtypes()
-   importpoke()
-   importmoves()
-   importabil()
-   importhasAbil()
-   importlearn()
-   importlset()
-   importevo()
-   importnature()
+    populatetypes()
+    importpoke()
+    importmoves()
+    importabil()
+    importhasAbil()
+    importlearn()
+    importlset()
+    importevo()
+    importnature()
+    importroles()
+    for poke in Pokemon.objects.all():
+        poke.set_rolestr()

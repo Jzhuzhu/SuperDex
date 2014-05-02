@@ -38,7 +38,7 @@
 	<div class="header">
 		<!-- Begin Logo -->
 		<div class="logo">
-		    <a href="main_search.html">
+		    <a href="/pokemon">
 				<img src="{% static 'style/images/Superdex_logo.png' %}" alt="" />
 			</a>
 	    </div>
@@ -104,23 +104,16 @@
 		
 		<div class="two-third last">
 			<h3>Who's that Pokémon?</h3>
-			<h6>{{ pokemon.name }} could make a great (Role) because it has superior Keystat</h6>
-			<p>If you use {{ pokemon.name }} as a  Role  </p>
-			<ul>
-				<li>Suggested Nature: </li>
-				<li>Suggested Moves: </li>
-				<li>Companion Pokémon: </li>
-			</ul>
+			{% for role in role_list %}
+                 <h6>{{ pokemon.name }} could make a great {{role.name}} because it has superior {{role.reqStats}}</h6>
+                    <p>If you use {{ pokemon.name }} as a {{role.name}}  </p>
+                    <ul>
+                        <li>Suggested Nature: {{role.suggNat}} </li>
+                        <li>Suggested Moves: {{role.impMoves}}</li>
+                        <li>Companion Pokémon: {{role.compIDs}}</li>
+                    </ul>
+            {% endfor %}
 
-			<h6>{{ pokemon.name }} could make a great (Role) because it has superior Keystat</h6>
-			<p>If you use {{ pokemon.name }} as a (Role) </p>
-			<ul>
-				<li>Suggested Nature: </li>
-				<li>Suggested Moves: </li>
-				<li>Companion Pokémon: </li>
-			</ul>
-
-			<p>For more information about roles, see our <a href="roles.html">Roles section</a></p>
 			Navigate to: <a href="#catch">Catching this Pokémon</a>, <a href="#battle">Battling with this Pokémon</a>, <a href="#hatch">Hatching this Pokémon</a>, <a href="#learnset">Learnset</a>
 			<hr />
 			
