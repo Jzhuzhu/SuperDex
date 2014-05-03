@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1728907b-8e18-4d3c-ad6e-28bed345c9fd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuperDex/SuperDex/urls.py" afterPath="$PROJECT_DIR$/SuperDex/SuperDex/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuperDex/pokemon/urls.py" afterPath="$PROJECT_DIR$/SuperDex/pokemon/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuperDex/pokemon/views.py" afterPath="$PROJECT_DIR$/SuperDex/pokemon/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperDex.iws" />
@@ -25,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="30" selection-start="4242" selection-end="4242" vertical-scroll-proportion="0.0" vertical-offset="998" max-vertical-offset="2115">
+            <state line="58" column="0" selection-start="1789" selection-end="1789" vertical-scroll-proportion="1.3824885" vertical-offset="270" max-vertical-offset="2340">
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -36,11 +39,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pokemon_profile.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pokemon_profile.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="0" selection-start="6212" selection-end="6212" vertical-scroll-proportion="0.48402947" vertical-offset="2203" max-vertical-offset="5640">
+            <state line="194" column="40" selection-start="7200" selection-end="7200" vertical-scroll-proportion="-2.86" vertical-offset="2767" max-vertical-offset="5640">
+              <folding>
+                <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_search_withuserinfo.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/main_search_withuserinfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="6" selection-start="3030" selection-end="3030" vertical-scroll-proportion="-3.125" vertical-offset="1200" max-vertical-offset="1995">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_search.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/main_search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="83" selection-start="3160" selection-end="3160" vertical-scroll-proportion="-10.625" vertical-offset="900" max-vertical-offset="1680">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuperDex/SuperDex/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="1515">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuperDex/SuperDex/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="26" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="1" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,40 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_search_withuserinfo.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Templates/superdex/files/template/main_search_withuserinfo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1995">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_search.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Templates/superdex/files/template/main_search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="41" selection-start="2150" selection-end="2150" vertical-scroll-proportion="5.08" vertical-offset="974" max-vertical-offset="1620">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="imports.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SuperDex/imports.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="16" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="7800">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="0" selection-start="6407" selection-end="6407" vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="3870">
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -109,15 +139,17 @@
         <option value="$PROJECT_DIR$/Templates/superdex/files/template/main_search.html" />
         <option value="$PROJECT_DIR$/Templates/superdex/files/template/main_search_compare.html" />
         <option value="$PROJECT_DIR$/Templates/superdex/files/template/style.css" />
-        <option value="$PROJECT_DIR$/SuperDex/pokemon/views.py" />
         <option value="$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_comparison.html" />
         <option value="$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_profile.html" />
+        <option value="$PROJECT_DIR$/SuperDex/pokemon/views.py" />
+        <option value="$PROJECT_DIR$/SuperDex/pokemon/urls.py" />
+        <option value="$PROJECT_DIR$/SuperDex/SuperDex/urls.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="145" />
-    <option name="y" value="22" />
+    <option name="x" value="282" />
+    <option name="y" value="175" />
     <option name="width" value="1068" />
     <option name="height" value="868" />
   </component>
@@ -501,7 +533,15 @@
       <created>1399072385843</created>
       <updated>1399072385843</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge branch 'master' of https://github.com/Jzhuzhu/SuperDex&#10;&#10;Conflicts:&#10;&#9;SuperDex/pokemon/views.py&#10;">
+      <created>1399072392501</created>
+      <updated>1399072392501</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge branch 'master' of https://github.com/Jzhuzhu/SuperDex&#10;&#10;Conflicts:&#10;&#9;SuperDex/pokemon/views.py&#10;">
+      <created>1399073326890</created>
+      <updated>1399073326890</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -525,26 +565,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="145" y="22" width="1068" height="868" extended-state="0" />
+    <frame x="282" y="175" width="1068" height="868" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32860824" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24928367" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32860824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3782235" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32860824" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
@@ -567,13 +607,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Templates/superdex/files/template/main_search_withuserinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Templates/superdex/files/template/main_search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="41" selection-start="2150" selection-end="2150" vertical-scroll-proportion="5.08" vertical-offset="974" max-vertical-offset="1620">
@@ -587,13 +620,6 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SuperDex/imports.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="7800">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,6 +637,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Templates/superdex/files/template/main_search_withuserinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_comparison.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="36" selection-start="4640" selection-end="4640" vertical-scroll-proportion="-4.5" vertical-offset="1575" max-vertical-offset="8310">
@@ -618,19 +651,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/views.py">
+    <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/main_search_withuserinfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="30" selection-start="4242" selection-end="4242" vertical-scroll-proportion="0.0" vertical-offset="998" max-vertical-offset="2115">
+        <state line="85" column="6" selection-start="3030" selection-end="3030" vertical-scroll-proportion="-3.125" vertical-offset="1200" max-vertical-offset="1995">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/imports.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="7800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="1" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.0542636" vertical-offset="795" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/SuperDex/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="447">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/SuperDex/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/SuperDex/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="26" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/main_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="83" selection-start="3160" selection-end="3160" vertical-scroll-proportion="-10.625" vertical-offset="900" max-vertical-offset="1680">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/templates/pokemon/pokemon_profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="0" selection-start="6212" selection-end="6212" vertical-scroll-proportion="0.48402947" vertical-offset="2203" max-vertical-offset="5640">
-          <folding />
+        <state line="194" column="40" selection-start="7200" selection-end="7200" vertical-scroll-proportion="-2.86" vertical-offset="2767" max-vertical-offset="5640">
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperDex/pokemon/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="1789" selection-end="1789" vertical-scroll-proportion="1.3824885" vertical-offset="270" max-vertical-offset="2340">
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

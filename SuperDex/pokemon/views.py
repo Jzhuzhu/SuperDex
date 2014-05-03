@@ -61,17 +61,20 @@ def search(request):
     role_list = []
     comp_lists = []
     for roletoken in role_tokens:
-        roleInt = int(roletoken)
-        roleObj = Roles.objects.get(pk = roleInt)
+        if roletoken.isdigit():
+            roleInt = int(roletoken)
+            roleObj = Roles.objects.get(pk = roleInt)
 
-        comp_tokens = roleObj.compIDs.split("/")
-        comp_list = []
-        for comp_token in comp_tokens:
-            compInt = int(comp_token)
-            comp_list.append(Roles.objects.get(pk = compInt).name)
-        compstr = "/".join(comp_list)
-        comp_lists.append(compstr)
-        role_list.append((roleObj, compstr))
+            comp_tokens = roleObj.compIDs.split("/")
+            comp_list = []
+            for comp_token in comp_tokens:
+                if comp_token.isdigit():
+                    compInt = int(comp_token)
+                    comp_list.append(Roles.objects.get(pk = compInt).name)
+
+            compstr = "/".join(comp_list)
+            comp_lists.append(compstr)
+            role_list.append((roleObj, compstr))
 
 
 
