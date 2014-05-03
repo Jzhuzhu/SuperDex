@@ -38,7 +38,7 @@
 	<div class="header">
 		<!-- Begin Logo -->
 		<div class="logo">
-		    <a href="index.html">
+		    <a href="/pokemon">
 				<img src="{% static 'style/images/Superdex_logo.png' %}" alt="" />
 			</a>
 	    </div>
@@ -47,9 +47,11 @@
 		<div id="menu-wrapper">
 			<div id="menu" class="menu">
 				<ul id="tiny">
-					<li><a href="main_search.html">Search</a>
+                    <li><a href="/pokemon/comparison">Compare</a>
+                    </li>
+					<li><a href="/pokemon">Search</a>
 					</li>
-					<li><a href="">Settings</a>
+					<li><a href="/pokemon/settings.html">Settings</a>
 					</li>
 				</ul>
 			</div>
@@ -74,6 +76,14 @@
 				<form class="searchform" method="get" action="/pokemon/search/">
 					<input type="text" name="q" placeholder="type and hit enter" required/>
 				</form>
+                {% if multiple %}
+                    <p style="color: white;">Did you mean:</p>
+                    <ul>
+                        {% for suggestion in possible_list %}
+                            <li> <a href="/pokemon/search/?q={{suggestion}}">{{suggestion}}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
 				{% if error %}
 			        <p style="color: red;">Pokemon not found.  Please try again</p>
 			    {% endif %}

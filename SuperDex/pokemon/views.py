@@ -3,7 +3,7 @@ from django.template import Context, loader
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import *
 
 from models import *
 
@@ -21,7 +21,12 @@ def search(request):
         else:
             pokemon = Pokemon.objects.get(name=query)
     except ObjectDoesNotExist:
-        return render(request, 'pokemon/main_search.html', {'error': True})
+        if len(Pokemon.objects.filter(name__contains = query)) != 0:
+            possible_list = Pokemon.objects.filter(name__contains = query).values_list('name', flat=True)
+            return render(request, 'pokemon/main_search.html', {'multiple': True, 'possible_list': possible_list})
+        else:
+            return render(request, 'pokemon/main_search.html', {'error': True})
+
 
     has_abilities = has_ability.objects.filter(pokemon_id=pokemon)
     abilities = []
