@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>SuperDex</title>
+<link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'pokeball.ico' %}" />
 <link rel="stylesheet" type="text/css" media="all" href="{% static 'style.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'style/css/media-queries.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'style/js/player/mediaelementplayer.css' %}" />
@@ -47,9 +48,11 @@
 		<div id="menu-wrapper">
 			<div id="menu" class="menu">
 				<ul id="tiny">
-					<li><a href="/pokemon/">Search</a>
+                    <li><a href="/pokemon/comparison">Compare</a>
+                    </li>
+					<li><a href="/pokemon">Search</a>
 					</li>
-					<li><a href="">Settings</a>
+					<li><a href="/pokemon/settings.html">Settings</a>
 					</li>
 				</ul>
 			</div>
@@ -70,9 +73,10 @@
 	<div class="intro">
 		<div class="outer none">
 		<ul class="social">
-			<li> <h1> {{ pokemon1.name }} vs {{ pokemon2.name }}</li>
+			<li> <h1> {{ pokemon1.name }} vs {{ pokemon2.name }} </h1></li>
 			<li><span class="inset"><img src="{{ pokemon1.imageurl }}"/></span></li>
 			<li><span class="inset"><img src="{{ pokemon2.imageurl }}"/></span></li>
+        </ul>
 		</div>
 		<h1 class="title">{{ pokemon_stat.name}} is the stronger Pokémon</h1>
 	</div>

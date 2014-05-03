@@ -144,6 +144,8 @@ def comp_search(request):
         pokemon_stat = pokemon1
     elif pokemon1.basetotal < pokemon2.basetotal:
         pokemon_stat = pokemon2
+    else:
+        pokemon_stat = []
 
     if sum1 > sum2:
         pokemon_less_weak = pokemon1

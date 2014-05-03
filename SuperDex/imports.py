@@ -76,10 +76,10 @@ def importpoke():
         p.basespattack = int(Tokens[22])
         p.basespdefense = int(Tokens[23])
         p.basespeed = int(Tokens[24])
-        p.basetotal = int(Tokens[25])
+        p.basetotal = p.basehp + p.baseattack + p.basedefense + p.basespattack + p.basespdefense + p.basespeed
 
         p.save()
-        #print p.name, "saved to database"
+        print p.name, "saved to database"
 
     print Pokemon.objects.count(), "Pokemons loaded"
 
