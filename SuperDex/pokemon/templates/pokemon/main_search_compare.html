@@ -30,6 +30,12 @@
 <script type="text/javascript">
 	$.backstretch("{% static 'style/images/bg/pokedex-booting_mod.jpg' %}");
 </script>
+<script type="text/javascript">
+function display(txtfd, str)
+    {
+        document.getElementById(txtfd).value = str;
+    }
+</script>
 </head>
 <body>
 <div class="scanlines"></div>
@@ -74,17 +80,35 @@
 
 <div class="widget widget_search">
 				<h3 class="widget-title">Who's the better Pokémon?</h3>
-				<form class="searchform" method="get" action="/pokemon/comp_search/">
-					<input type="text" name="p1" value = "{{query1}}" placeholder="enter first pokémon here"required />
+				<form class="searchform" id="compare" method="get" action="/pokemon/comp_search/">
+					<input type="text" id="p1" name="p1" value = "{{query1}}" placeholder="enter first pokémon here"required />
+                    {% if multiple1 %}
+                        <div class="box">
+                        <p style="color: white;">Did you mean:</p>
+                        {% for suggestion in possible_list1 %}
+                        <span class="inset"><label for="{{suggestion}}">{{suggestions}}</label></span>
+                        <span class="inset"><input type="radio" id="{{suggestion}}" value="{{suggestion}}" onclick="document.getElementById('p1').value=this.value">{{suggestion}}</span><br />
+                        {% endfor %}
+                        </div>
+                    {% endif %}
 					{% if error1 %}
 			       		<p style="color: red;">Pokemon not found.  Please try again</p>
 			  	  	{% endif %}
 					<h3 class="widget-title">or</h3>
-					<input type="text" name="p2" value = "{{query2}}" placeholder="enter second pokémon here" required/>
+					<input type="text" id="p2" name="p2" value = "{{query2}}" placeholder="enter second pokémon here" required/>
+                    {% if multiple2 %}
+                        <div class="box">
+                        <p style="color: white;">Did you mean:</p>
+                        {% for suggestion in possible_list2 %}
+                        <label for="{{suggestion}}">{{suggestions}}</label>
+                        <input type="radio" id="{{suggestion}}" value="{{suggestion}}" onclick="document.getElementById('p2').value=this.value">{{suggestion}}<br />
+                        {% endfor %}
+                        </div>
+                    {% endif %}
 					{% if error2 %}
 			       		<p style="color: red;">Pokemon not found.  Please try again</p>
 			  	  	{% endif %}
-					<input type="submit" value="Compare These Pokémon!"><br />
+					<input type="submit" form="compare" value="Compare These Pokémon!"><br />
 				</form>
 			</div>
 			

@@ -101,21 +101,46 @@ def index_comparison(request):
 def comp_search(request):
     query1 = request.GET.get('p1')
     query2 = request.GET.get('p2')
+    possible_list1 = []
+    possible_list2 = []
+    multiple1 = False
+    multiple2 = False
+    error1 = False
+    error2 = False
     try:
         if query1.isdigit():
             pokemon1 = Pokemon.objects.get(pk=float(query1))
         else:
             pokemon1 = Pokemon.objects.get(name=query1)
     except ObjectDoesNotExist:
-        return render(request, 'pokemon/main_search_compare.html', {'error1': True})
+        if len(Pokemon.objects.filter(name__contains = query1)) != 0:
+            possible_list1 = Pokemon.objects.filter(name__contains = query1).values_list('name', flat=True)
+            multiple1 = True
+            #return render(request, 'pokemon/main_search_compare.html', {'multiple1': True, 'possible_list1': possible_list1})
+        else:
+            error1 = True
+            #return render(request, 'pokemon/main_search_compare.html', {'error1': True})
 
     try:
         if query2.isdigit():
             pokemon2 = Pokemon.objects.get(pk=float(query2))
         else:
+            #if len(Pokemon.objects.filter(name__contains = query2)) != 0:
             pokemon2 = Pokemon.objects.get(name=query2)
     except ObjectDoesNotExist:
-        return render(request, 'pokemon/main_search_compare.html', {'error2': True})
+        if len(Pokemon.objects.filter(name__contains = query2)) != 0:
+            possible_list2 = Pokemon.objects.filter(name__contains = query2).values_list('name', flat=True)
+            multiple2 = True
+            #return render(request, 'pokemon/main_search_compare.html', {'multiple2': True, 'possible_list2': possible_list2})
+        else:
+            error2 = True
+            #return render(request, 'pokemon/main_search_compare.html', {'error2': True})
+
+    #if error1 or error2:
+    #    return render(request, 'pokemon/main_search_compare.html', {'error1': error1, 'error2': error2})
+
+    if multiple1 or multiple2 or error1 or error2:
+        return render(request, 'pokemon/main_search_compare.html', {'error1': error1, 'error2': error2, 'multiple1': multiple1, 'possible_list1': possible_list1, 'multiple2': multiple2, 'possible_list2': possible_list2})
 
     has_abilities1 = has_ability.objects.filter(pokemon_id=pokemon1)
     ability1 = []
